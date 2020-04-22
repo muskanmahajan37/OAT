@@ -42,7 +42,6 @@ Allow Only This websites to be launched in that time frame. Evething else just r
    - mac
    - linux
 - Then restore the host file from the backup file when time is up.
-- Also we will need a 
 
 
 ## Implementation - in memory version
