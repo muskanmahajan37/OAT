@@ -6,6 +6,8 @@ Created on Tue Apr 21 20:49:07 2020
 """
 # import os
 import platform
+import time
+from datetime import datetime as dt
 from pathlib.Path import resolve
 
 # for initially windows only
@@ -17,7 +19,6 @@ if (platform.release() != "Windows"):
 # for windows 10 x64
 # host_file = "C:\Windows\System32\drivers\etc\hosts"
 host_file = "hosts"
-new_host_file = "new_host_file.txt"
 websites_file = "websites.txt"
 backup_host_file = "hosts.backup"
 
@@ -53,26 +54,35 @@ def restore_host_file():
         print("\nRestored the host file from host backup successfully!")
 
 
-def block_sites():
+def add_block_sites():
     # open rules file and read each website
     with open(websites_file, "r", encoding="utf-8") as f:
         websites = f.readlines()
     # create a new host file
-    with open(host_file, "w", encoding="utf-8") as f:
+    with open(host_file, "w+", encoding="utf-8") as f:
         # first write the original hostfile
-        f.write(OAT_note)  # note for users
-        # now get every website mentioned in the rule file
-        # given by user
+        host_content = f.read()
         for website in websites:
-            f.write(redirect + "    " + website.strip() + "\n")
+            if website in host_content:
+                pass
+            else:
+                f.write(redirect + "    " + website.strip() + "\n")
 
 
-def time_management():
-    pass
 
+def time_manager(start_time, end_time):
+    while (dt(dt.now().year, dt.now().month, dt.now().day,start_time) < dt.now() < dt(dt.now().year, dt.now().month,dt.now().day, end_time)):
+        add_block_sites()
+        time.sleep(10)
 
 def main():
-    pass
+    print("I'm OAT!")
+    start_time = int(input("Enter the start time in 24 Hours format.\nExample\t2 for 2 AM 18 for 6PM.))
+
+    end_time = int(input("Similarly, enter end time!))
+    if((0<= start_time <=24) && (0<= endtime <= 24 )):
+        backup_host_file()
+        time_mnager(start_time, end_time)
 
 
 if __name__ == "__main__":
