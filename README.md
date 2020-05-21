@@ -2,12 +2,12 @@
  Only Allow This
 
 ## Idea
-An application that will take 
+An application that will take
 
 ### input
 
 A string of website
-A Start Time 
+A Start Time
 End Time
 
 ### Output
@@ -23,7 +23,7 @@ Allow Only This websites to be launched in that time frame. Evething else just r
 
 ### High Level
 
-- A small GUI that takes either 
+- A small GUI that takes either
    - a file containing the websites
    - or type manually urls
 - A time defining widget
@@ -35,7 +35,7 @@ Allow Only This websites to be launched in that time frame. Evething else just r
    - if exists
       - match with current hostfile
 	  - if no difference then ignore
-	  - if difference, overwrite,because we might have abruptly closed last session.Need inplace version. 
+	  - if difference, overwrite,because we might have abruptly closed last session.Need inplace version.
 - backup the original host file for initial run.
 - modify the host files at the start time specified by the user, with the websites the user has given.
    - windows(High priority)
@@ -50,3 +50,9 @@ Allow Only This websites to be launched in that time frame. Evething else just r
 - Create a new temporary file. Add new rules.
 - Start the process when start time triggeres.
 - Make OS lookup our new host file till session runs.
+
+
+## Features- Todo
+
+- Add pomodoro - simple
+- Add pomodoro - with internet blocker, like for 25 min ,no internet, then 5 min you have. But you need a toggle. Can merge with previous one.
